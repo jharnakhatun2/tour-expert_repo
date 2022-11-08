@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+/* service section bacground image */
+.bg_image{
+  background: rgb(15, 111, 143) url("./3.png") no-repeat fixed center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
