@@ -5,7 +5,7 @@ import { AiFillFacebook, AiFillHome, AiFillInstagram, AiFillPhone, AiFillTwitter
 const Footer = () => {
   return (
     <footer >
-    <div className="footer p-5 bg-white  border-t-8 border-t-cyan-400 justify-evenly">
+    <div className="footer p-10 bg-white  border-t-4 border-t-cyan-200 justify-evenly">
       <div className="flex items-center">
         <img src={logo} alt="" className="w-20 rounded-3xl" />
         <p>
