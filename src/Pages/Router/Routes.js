@@ -5,6 +5,7 @@ import Home from '../Home/Home';
 import Service from '../Services/Service';
 import SingleService from '../Services/SingleService';
 import Signup from '../Authentication/Signup';
+import User from '../User/User';
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         {
           path: '/signup',
           element: <Signup></Signup>
+        },
+        {
+          path: '/user',
+          element: <User></User>
         }
       ]
     }

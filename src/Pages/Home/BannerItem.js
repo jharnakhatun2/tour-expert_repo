@@ -20,7 +20,7 @@ const BannerItem = ({slide}) => {
             </p>
           </div>
           <div className="absolute flex justify-start transform -translate-y-1/2 left-24 top-2/3 ">
-          <Link to="/">
+          <Link to="/service">
             <button className="btn  bg-orange-600 hover:bg-cyan-600 mr-5 text-white w-full">MORE EXCITING </button></Link>
           </div>
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
