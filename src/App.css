@@ -32,6 +32,9 @@
 .bg_image{
   background: rgb(15, 111, 143) url("./3.png") no-repeat fixed center;
 }
+.destination{
+  background-position: fixed;
+}
 
 @keyframes App-logo-spin {
   from {

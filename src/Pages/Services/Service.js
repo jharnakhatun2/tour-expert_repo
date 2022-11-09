@@ -35,7 +35,7 @@ const Service = () => {
                   <h2 className="text-orange-600 text-2xl font-bold">
                     ${price}
                   </h2>
-                  <Link to="/service">
+                  <Link to={`/singleservice/${_id}`}>
                     <button className="btn bg-cyan-400 hover:bg-orange-400 text-white border-0">
                       VIEW DETAILS
                     </button>

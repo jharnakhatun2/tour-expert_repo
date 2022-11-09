@@ -10,7 +10,7 @@ import "react-photo-view/dist/react-photo-view.css";
 
 const Choose = () => {
   return (
-    <div className="px-10 py-20">
+    <div className="px-10 py-20 destination">
       <div className="text-center my-4">
         <h1 className="text-3xl font-bold text-zinc-800">
           POPULAR DESTINATION

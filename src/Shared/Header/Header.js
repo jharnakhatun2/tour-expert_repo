@@ -5,6 +5,7 @@ import logo from "../../Assets/logot.png";
 const Header = () => {
     const menuItems = <>
         <li><Link to = '/'>Home</Link></li>
+        <li><Link to = '/service'>Services</Link></li>
     </>
   return (
     <div className="navbar bg-white border-b-8 border-b-cyan-400 px-5">
