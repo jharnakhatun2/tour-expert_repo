@@ -16,9 +16,14 @@ const Header = () => {
     const menuItems = <>
         <li><Link to = '/'>Home</Link></li>
         <li><Link to = '/service'>Services</Link></li>
+        
         {
               user?.email?
+              <div className="flex">
+              <li><Link to = '/review'>Your Review</Link></li>
               <li onClick ={handleLogOut}><Link>Log Out</Link></li>
+              </div>
+              
               : <li><Link to = '/login'>LogIn</Link></li>
         }
         

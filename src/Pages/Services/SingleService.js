@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthProvider";
 
@@ -6,22 +6,24 @@ import { AuthContext } from "../Authentication/AuthProvider";
 const SingleService = () => {
   const {user} = useContext(AuthContext);
   const { _id, image, name, price, short_des, des } = useLoaderData();
+  const [reviewDisplay, setReviewDisplay] = useState({});
 
   const handleReview=event=>{
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const username = form.username.value;
     const email = user?.email || 'unregistered';
     const message = form.message.value;
 
     const review = {
       service: _id,
-      name,
+      service_name: name,
+      username,
       email,
       message
     }
 
-    fetch('http://localhost:5000/reviews',{
+    fetch('http://localhost:5000/review',{
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -29,10 +31,23 @@ const SingleService = () => {
       body: JSON.stringify(review)
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data =>{
+      console.log(data);
+      if(data.acknowledged){
+        alert('Review Submitted Successfully');
+        form.reset();
+      }
+    })
     .catch(err => console.error(err));
 
   }
+
+  // Display review for specific service
+  useEffect(()=>{
+    fetch(`http://localhost:5000/review?service=${_id}`)
+    .then(res=> res.json())
+    .then(data =>setReviewDisplay(data));
+},[user?.email])
 
   return (
     <div className="bg-zinc-100">
@@ -60,14 +75,14 @@ const SingleService = () => {
           <div>
             <div>
               <span className="text-xl font-bold text-cyan-600 uppercase">
-                User Review about This Services :
+                Total User Review about This Services : {reviewDisplay.length}
               </span>
             </div>
             <div>
               <div>
                 <h1 className="text-lg mb-2">Please Add your Review :</h1>
                 <form  onSubmit={handleReview}>
-                  <input className="my-2 p-2 rounded" type="text" name="name" placeholder="Your name" required/>
+                  <input className="my-2 p-2 rounded" type="text" name="username" placeholder="Your name" required/>
                   <br />
                   <input className="my-2 p-2 rounded" type="emil" defaultValue={user?.email} name="emil" placeholder="Your emil" readOnly  required/> 
                   <br />
