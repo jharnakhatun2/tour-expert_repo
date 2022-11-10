@@ -12,7 +12,6 @@ import Blogs from '../Blogs/Blogs';
 import Blog from '../Blogs/Blog';
 import Update from '../Review/Update';
 import Error from '../Error';
-import PrivateRoute from './PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -48,11 +47,11 @@ const router = createBrowserRouter([
         },
         {
           path: '/review',
-          element: <PrivateRoute><Review></Review></PrivateRoute>
+          element: <Review></Review>
         },
         {
           path: '/addservice',
-          element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
+          element: <AddServices></AddServices>
         },
         {
           path: '/blogs',

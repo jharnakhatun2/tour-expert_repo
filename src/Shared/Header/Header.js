@@ -23,11 +23,12 @@ const Header = () => {
               <div className="flex">
               <li><Link to = '/addservice'>Add Services</Link></li>
               <li><Link to = '/review'>My Review</Link></li>
-              <li onClick ={handleLogOut}><Link>Log Out</Link></li>
+              <li onClick ={handleLogOut}><Link to="/service">Log Out</Link></li>
               </div>
               
               : <li><Link to = '/login'>LogIn</Link></li>
         }
+        <li><Link to = '/review'>Sign Up</Link></li>
         
     </>
   return (
