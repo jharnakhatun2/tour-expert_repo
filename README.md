@@ -8,7 +8,7 @@ TOUR EXPERT is Full Stack based website. React js application is easy to use for
 To make this project I faced some challenges to myself and enjoyed it more. Challenges always attracted to Me!  
 
 ## 🔗 Live Site Link: 
-Preview Live : https://assignment-10-75df6.web.app
+Preview Live : https://tour-expart.web.app/
 
 
 ## What I have been completed -
@@ -29,11 +29,5 @@ Preview Live : https://assignment-10-75df6.web.app
     - UI responsive for any device and more...
 
 
-
-
-## Server site  Link:
-Get all courses: https://assignment-ten-server-sage.vercel.app/courses
-Get all courses category: https://assignment-ten-server-sage.vercel.app/category
-Get all Blogs: https://assignment-ten-server-sage.vercel.app/blog
 
 
