@@ -26,12 +26,12 @@ const router = createBrowserRouter([
         {
             path: '/service',
             element:<Service></Service>,
-            loader: ()=>fetch(`http://localhost:5000/service`)
+            loader: ()=>fetch(`https://tour-expert-server.vercel.app/service`)
         },
         {
           path: '/singleservice/:id',
           element: <SingleService></SingleService>,
-          loader: ({params})=>fetch(`http://localhost:5000/service/${params.id}`)
+          loader: ({params})=>fetch(`https://tour-expert-server.vercel.app/service/${params.id}`)
         },
         {
           path: '/login',
@@ -56,17 +56,17 @@ const router = createBrowserRouter([
         {
           path: '/blogs',
           element: <Blogs></Blogs>,
-          loader: ()=>fetch(`http://localhost:5000/blogs`)
+          loader: ()=>fetch(`https://tour-expert-server.vercel.app/blogs`)
         },
         {
           path: '/blog/:id',
           element: <Blog></Blog>,
-          loader: ({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
+          loader: ({params})=>fetch(`https://tour-expert-server.vercel.app/blogs/${params.id}`)
         },
         {
           path: '/update/:id',
           element: <Update></Update>,
-          loader: ({params})=>fetch(`http://localhost:5000/review/${params.id}`)
+          loader: ({params})=>fetch(`https://tour-expert-server.vercel.app/review/${params.id}`)
         },
         {
           path: '*',

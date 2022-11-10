@@ -10,7 +10,7 @@ const Review = () => {
   console.log(review);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
+    fetch(`https://tour-expert-server.vercel.app/review?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [user?.email]);
@@ -18,7 +18,7 @@ const Review = () => {
   const handleDelete = _id =>{
     const proceed = window.confirm('Are you sure you want to delete?');
     if(proceed){
-        fetch(`http://localhost:5000/review/${_id}`,{
+        fetch(`https://tour-expert-server.vercel.app/review/${_id}`,{
             method: 'DELETE',
         })
         .then((res) => res.json())
@@ -34,7 +34,7 @@ const Review = () => {
   }
 
   const handleUpdate = _id => {
-    fetch(`http://localhost:5000/review/${_id}`,{
+    fetch(`https://tour-expert-server.vercel.app/review/${_id}`,{
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

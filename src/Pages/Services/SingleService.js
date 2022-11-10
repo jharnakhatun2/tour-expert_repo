@@ -24,7 +24,7 @@ const SingleService = () => {
       message,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://tour-expert-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const SingleService = () => {
 
   // Display review for specific service
   useEffect(() => {
-    fetch(`http://localhost:5000/review?service=${_id}`)
+    fetch(`https://tour-expert-server.vercel.app/review?service=${_id}`)
       .then((res) => res.json())
       .then((data) => setReviewDisplay(data));
   }, [user?.email]);

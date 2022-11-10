@@ -10,7 +10,7 @@ const Update = () => {
     const handleUpdateReview = event =>{
         event.preventDefault();
         
-        fetch(`http://localhost:5000/review/${storedUser._id}`,{
+        fetch(`https://tour-expert-server.vercel.app/review/${storedUser._id}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
