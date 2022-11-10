@@ -38,8 +38,8 @@ const Update = () => {
     
 
     return (
-        <div>
-            <h1>Hi {storedUser.username}, Please update your opinion -</h1>
+        <div className="bg-cyan-200 text-center p-20">
+            <h1 className="text-3xl text-black font-bold py-10">Hi {storedUser.username}, Please update your opinion -</h1>
             <div>
             <form onSubmit={handleUpdateReview}>
                   <input onChange={handleInputChange}
@@ -70,7 +70,7 @@ const Update = () => {
                   />
                   <br />
                   <button 
-                    className="bg-cyan-600 text-white p-3 w-full rounded"
+                    className="bg-cyan-600 text-white p-3 w-3/12 rounded"
                     type="submit"
                   >
                     SUBMIT
