@@ -32,6 +32,9 @@
 .bg_image{
   background: rgb(15, 111, 143) url("./3.png") no-repeat fixed center;
 }
+.blog_image{
+  background: rgb(247, 223, 181) ;
+}
 .loginbg{
   background: rgb(15, 111, 143) url(",/../Assets/login/login.jpg") no-repeat fixed center;
 }

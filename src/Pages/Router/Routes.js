@@ -8,6 +8,8 @@ import Signup from '../Authentication/Signup';
 import User from '../User/User';
 import Review from '../Review/Review';
 import AddServices from '../Services/AddServices';
+import Blogs from '../Blogs/Blogs';
+import Blog from '../Blogs/Blog';
 
 
 const router = createBrowserRouter([
@@ -48,6 +50,16 @@ const router = createBrowserRouter([
         {
           path: '/addservice',
           element: <AddServices></AddServices>
+        },
+        {
+          path: '/blogs',
+          element: <Blogs></Blogs>,
+          loader: ()=>fetch(`http://localhost:5000/blogs`)
+        },
+        {
+          path: '/blog/:id',
+          element: <Blog></Blog>,
+          loader: ({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
         }
       ]
     }

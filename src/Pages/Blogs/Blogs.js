@@ -1,20 +1,19 @@
-import React from "react";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Link, useLoaderData } from "react-router-dom";
+import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link, useLoaderData } from 'react-router-dom';
 
-const Service = () => {
-  const services = useLoaderData();
-  console.log(services);
-  return (
-    <div className="px-10 py-20 bg_image mx-auto">
+const Blogs = () => {
+    const blogs = useLoaderData();
+    return (
+        <div className="px-10 py-20 blog_image mx-auto">
       <div className="text-center my-4">
-        <h1 className="text-3xl font-bold text-zinc-800">SERVICES</h1>
+        <h1 className="text-3xl font-bold text-zinc-800">TOUR EXPERT BLOG</h1>
         <hr className="w-8 h-1 bg-orange-400 mx-auto" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center p-10 mx-auto">
-        {services.map((service) => {
-          const { _id, image, name, price, short_des } = service;
+        {blogs.map((blog) => {
+          const { _id, image, title,desc} = blog;
           return (
             <div
               className="card card-compact  bg-base-100 shadow-xl"
@@ -29,13 +28,11 @@ const Service = () => {
               </PhotoProvider>
 
               <div className="card-body">
-                <h2 className="card-title text-slate-200">{name}</h2>
-                <p>{short_des.length < 100 ? short_des : short_des.slice(0, 100)+ "..."}</p>
+                <h2 className="card-title text-slate-200">{title}</h2>
+                <p>{desc.length < 200 ? desc : desc.slice(0, 200)+ "..."}</p>
                 <div className="card-actions justify-between items-center">
-                  <h2 className="text-orange-600 text-2xl font-bold">
-                    ${price}
-                  </h2>
-                  <Link to={`/singleservice/${_id}`}>
+                  
+                  <Link to={`/blog/${_id}`}>
                     <button className="btn bg-cyan-400 hover:bg-orange-400 text-white border-0">
                       VIEW DETAILS
                     </button>
@@ -47,7 +44,7 @@ const Service = () => {
         })}
       </div>
     </div>
-  );
+    );
 };
 
-export default Service;
+export default Blogs;

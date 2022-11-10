@@ -33,7 +33,7 @@ const Services = () => {
 
           <div className="card-body">
             <h2 className="card-title text-slate-200">{name}</h2>
-            <p>{short_des}</p>
+            <p>{short_des.length < 100 ? short_des : short_des.slice(0, 100)+ "..."}</p>
             <div className="card-actions justify-between items-center">
               <h2 className="text-orange-600 text-2xl font-bold">${price}</h2>
               <Link to={`/singleservice/${_id}`}>
