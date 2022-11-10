@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import useTitle from '../../Hook/useTitle';
 import {AuthContext} from '../Authentication/AuthProvider';
 
 
@@ -40,9 +41,7 @@ const AddServices = () => {
     .catch(err => console.error(err));
   }
 
-
-
-  
+  useTitle('Add Services');
 
     return (
         <div className="py-20 px-96 bg-slate-300">

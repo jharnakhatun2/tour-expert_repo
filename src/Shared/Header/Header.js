@@ -22,7 +22,7 @@ const Header = () => {
               user?.email?
               <div className="flex">
               <li><Link to = '/addservice'>Add Services</Link></li>
-              <li><Link to = '/review'>Your Review</Link></li>
+              <li><Link to = '/review'>My Review</Link></li>
               <li onClick ={handleLogOut}><Link>Log Out</Link></li>
               </div>
               

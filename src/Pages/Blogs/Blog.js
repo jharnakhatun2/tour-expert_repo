@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hook/useTitle';
 
 const Blog = () => {
     const {title,image,desc} = useLoaderData();
 
-    
+    useTitle('Blog');
     return (
         <div className="px-10 py-20 bg_image mx-auto">
             <div>

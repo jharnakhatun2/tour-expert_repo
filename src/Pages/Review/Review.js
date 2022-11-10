@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Authentication/AuthProvider";
 import img from '../../Assets/login/profile.png';
+import useTitle from "../../Hook/useTitle";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
@@ -51,7 +52,7 @@ const Review = () => {
             }
         })
   }
-
+  useTitle('Review');
   return (
     <div className="bg-cyan-100 p-8 ">
       <h1 className="text-4xl text-center pt-10 text-slate-700 font-bold"> You have <span className="text-orange-600">{review.length}</span> Reviews</h1>

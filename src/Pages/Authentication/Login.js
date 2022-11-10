@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../Hook/useTitle";
 import { AuthContext } from "./AuthProvider";
 
 const Login = () => {
@@ -19,6 +20,7 @@ const Login = () => {
       })
       .catch((err) => console.error(err));
   };
+  useTitle('Login');
   return (
     <div className="hero w-full py-10  loginbg">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

@@ -1,9 +1,11 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hook/useTitle';
 
 const Blogs = () => {
     const blogs = useLoaderData();
+    useTitle('Blogs');
     return (
         <div className="px-10 py-20 blog_image mx-auto">
       <div className="text-center my-4">

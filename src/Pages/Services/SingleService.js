@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthProvider";
 import img from "../../Assets/login/profile.png";
+import useTitle from "../../Hook/useTitle";
 
 const SingleService = () => {
   const { user } = useContext(AuthContext);
@@ -48,7 +49,7 @@ const SingleService = () => {
       .then((data) => setReviewDisplay(data));
   }, [user?.email]);
 
-  
+  useTitle('Service');
 
   return (
     <div className="bg-zinc-100">
