@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthProvider";
-
+import img from "../../Assets/login/profile.png";
 
 const SingleService = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { _id, image, name, price, short_des, des } = useLoaderData();
-  const [reviewDisplay, setReviewDisplay] = useState({});
+  const [reviewDisplay, setReviewDisplay] = useState([]);
 
-  const handleReview=event=>{
+  const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
     const username = form.username.value;
-    const email = user?.email || 'unregistered';
+    const email = user?.email || "unregistered";
     const message = form.message.value;
 
     const review = {
@@ -20,34 +20,35 @@ const SingleService = () => {
       service_name: name,
       username,
       email,
-      message
-    }
+      message,
+    };
 
-    fetch('http://localhost:5000/review',{
-      method: 'POST',
+    fetch("http://localhost:5000/review", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(review)
+      body: JSON.stringify(review),
     })
-    .then(res => res.json())
-    .then(data =>{
-      console.log(data);
-      if(data.acknowledged){
-        alert('Review Submitted Successfully');
-        form.reset();
-      }
-    })
-    .catch(err => console.error(err));
-
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("Review Submitted Successfully");
+          form.reset();
+        }
+      })
+      .catch((err) => console.error(err));
+  };
 
   // Display review for specific service
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`http://localhost:5000/review?service=${_id}`)
-    .then(res=> res.json())
-    .then(data =>setReviewDisplay(data));
-},[user?.email])
+      .then((res) => res.json())
+      .then((data) => setReviewDisplay(data));
+  }, [user?.email]);
+
+  
 
   return (
     <div className="bg-zinc-100">
@@ -74,26 +75,71 @@ const SingleService = () => {
 
           <div>
             <div>
-              <span className="text-xl font-bold text-cyan-600 uppercase">
-                Total User Review about This Services : {reviewDisplay.length}
-              </span>
-            </div>
-            <div>
               <div>
                 <h1 className="text-lg mb-2">Please Add your Review :</h1>
-                <form  onSubmit={handleReview}>
-                  <input className="my-2 p-2 rounded" type="text" name="username" placeholder="Your name" required/>
+                <form onSubmit={handleReview}>
+                  <input
+                    className="my-2 p-2 rounded"
+                    type="text"
+                    name="username"
+                    placeholder="Your name"
+                    required
+                  />
                   <br />
-                  <input className="my-2 p-2 rounded" type="emil" defaultValue={user?.email} name="emil" placeholder="Your emil" readOnly  required/> 
+                  <input
+                    className="my-2 p-2 rounded"
+                    type="email"
+                    defaultValue={user?.email}
+                    name="email"
+                    placeholder="Your email"
+                    readOnly
+                    required
+                  />
                   <br />
-                  <textarea className="my-2 p-2 rounded" name="message" placeholder="write your opinion" rows="4" cols="50" required/>
+                  <textarea
+                    className="my-2 p-2 rounded"
+                    name="message"
+                    placeholder="write your opinion"
+                    rows="4"
+                    cols="50"
+                    required
+                  />
                   <br />
-                  <button className="bg-cyan-600 text-white p-3 w-full rounded" type="submit"> SUBMIT </button>
+                  <button 
+                    className="bg-cyan-600 text-white p-3 w-full rounded"
+                    type="submit"
+                  >
+                    SUBMIT
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <span className="text-xl font-bold text-cyan-600 uppercase p-10">
+          Total User Review about This Services : {reviewDisplay.length}
+        </span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center p-10">
+        {reviewDisplay.map((revD) => {
+          const { _id,username, email, message } = revD;
+          return (
+            <div key={_id}>
+              <div className="card w-96 shadow-xl">
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">" {message} "</h2>
+                  <figure className="px-10 py-2">
+                    <img src={img} alt="Shoes" className="rounded-xl w-12" />
+                  </figure>
+                  <h3>{username}</h3>
+                  <p>{email}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

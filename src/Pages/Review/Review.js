@@ -31,6 +31,27 @@ const Review = () => {
     }
   }
 
+  const handleUpdate = _id => {
+    fetch(`http://localhost:5000/review/${_id}`,{
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'Approved'})
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            if(data.matchedCount > 0){
+                const remaining = review.filter(rvw => rvw._id !== _id);
+                const approving = review.find(rvw => rvw._id !== _id);
+                approving.status = 'Approved'
+                const newReview = [approving,...remaining];
+                setReview(newReview);
+            }
+        })
+  }
+
   return (
     <div className="bg-cyan-100 p-8 ">
       <h1 className="text-4xl text-center pt-10 text-slate-700 font-bold"> You have <span className="text-orange-600">{review.length}</span> Reviews</h1>
@@ -39,8 +60,7 @@ const Review = () => {
         <table className="table w-full mx-auto">
           <tbody>
             {review.map((rev) => {
-              const { _id, service, username, email, message, service_name } =
-                rev;
+              const { _id, service, username, email, message, service_name, status } = rev;
               return (
                 <div key={_id} className="m-5 ">
                   <tr>
@@ -79,7 +99,9 @@ const Review = () => {
                       </span>
                     </td>
                     <td>
-                      <span className="badge badge-ghost text-orange-600 badge-lg">update</span>
+                    <button onClick={()=>handleUpdate(_id)}>
+                      <span className="badge badge-ghost text-orange-600 badge-lg">{status ? status : 'Pending'}</span>
+                      </button>
                     </td>
                   </tr>
                 </div>

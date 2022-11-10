@@ -20,6 +20,7 @@ const Header = () => {
         {
               user?.email?
               <div className="flex">
+              <li><Link to = '/addservice'>Add Services</Link></li>
               <li><Link to = '/review'>Your Review</Link></li>
               <li onClick ={handleLogOut}><Link>Log Out</Link></li>
               </div>
@@ -67,14 +68,12 @@ const Header = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img src={img}  alt=""/>
+        {
+          user?.photoURL ? <img src={user.photoURL} alt=""/> : <img src={img}  alt=""/>
+        }
+          
         </div>
       </label>
-      <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        <li><a href=" " className="justify-between"><Link to = '/user'>Profile</Link></a></li>
-        <li><a href=" ">Settings</a></li>
-        <li><a href=" ">Logout</a></li>
-      </ul>
     </div>
   </div>
       </div>

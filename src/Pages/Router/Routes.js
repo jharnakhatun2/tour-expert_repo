@@ -7,6 +7,7 @@ import SingleService from '../Services/SingleService';
 import Signup from '../Authentication/Signup';
 import User from '../User/User';
 import Review from '../Review/Review';
+import AddServices from '../Services/AddServices';
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         {
           path: '/review',
           element: <Review></Review>
+        },
+        {
+          path: '/addservice',
+          element: <AddServices></AddServices>
         }
       ]
     }
