@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Authentication/AuthProvider";
 import img from '../../Assets/login/profile.png';
 import useTitle from "../../Hook/useTitle";
+import { Link } from "react-router-dom";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
@@ -103,6 +104,9 @@ const Review = () => {
                     <button onClick={()=>handleUpdate(_id)}>
                       <span className="badge badge-ghost text-orange-600 badge-lg">{status ? status : 'Pending'}</span>
                       </button>
+                    </td>
+                    <td>
+                    <Link to={`/update/${_id}`}><button className="text-white cursor-pointer">Update</button></Link>
                     </td>
                   </tr>
                 </div>

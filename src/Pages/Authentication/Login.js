@@ -4,7 +4,11 @@ import useTitle from "../../Hook/useTitle";
 import { AuthContext } from "./AuthProvider";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  useTitle('Login');
+  const { logIn, loading } = useContext(AuthContext);
+    if(loading){
+      return <h1 className="text-5xl"> Loading ...</h1>
+    }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -20,7 +24,7 @@ const Login = () => {
       })
       .catch((err) => console.error(err));
   };
-  useTitle('Login');
+  
   return (
     <div className="hero w-full py-10  loginbg">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

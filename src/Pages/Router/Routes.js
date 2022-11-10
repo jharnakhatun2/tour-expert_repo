@@ -10,6 +10,8 @@ import Review from '../Review/Review';
 import AddServices from '../Services/AddServices';
 import Blogs from '../Blogs/Blogs';
 import Blog from '../Blogs/Blog';
+import Update from '../Review/Update';
+import Error from '../Error';
 
 
 const router = createBrowserRouter([
@@ -60,6 +62,15 @@ const router = createBrowserRouter([
           path: '/blog/:id',
           element: <Blog></Blog>,
           loader: ({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
+        },
+        {
+          path: '/update/:id',
+          element: <Update></Update>,
+          loader: ({params})=>fetch(`http://localhost:5000/review/${params.id}`)
+        },
+        {
+          path: '*',
+          element: <Error></Error>
         }
       ]
     }

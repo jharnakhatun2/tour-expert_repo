@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../Hook/useTitle";
+import { AuthContext } from "../Authentication/AuthProvider";
 
 const Service = () => {
   const services = useLoaderData();
-  console.log(services);
   useTitle('Services');
+  const {loading} = useContext(AuthContext);
+    if(loading){
+      return <h1 className="text-5xl"> Loading ...</h1>
+    }
+    
   return (
     <div className="px-10 py-20 bg_image mx-auto">
       <div className="text-center my-4">

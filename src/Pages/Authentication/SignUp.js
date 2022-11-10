@@ -5,8 +5,11 @@ import { AuthContext } from './AuthProvider';
 
 
 const Signup = () => {
-    const {createUser, googleSignIn} = useContext(AuthContext);
-    
+  useTitle('Sign In');
+    const {createUser, googleSignIn,loading} = useContext(AuthContext);
+    if(loading){
+      return <h1 className="text-5xl"> Loading ...</h1>
+    }
     const handleSignIn=event=>{
         event.preventDefault();
         const form = event.target;
@@ -30,8 +33,6 @@ const Signup = () => {
       })
       .catch(err=>console.error(err));
     }
-
-    useTitle('Sign In');
 
     return (
         <div className="hero w-full py-10 loginbg">    
